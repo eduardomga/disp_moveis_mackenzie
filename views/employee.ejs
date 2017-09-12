@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {background: skyblue; font-family: verdana; color: #fff; padding: 30px;}
+            h1 {font-size: 26px; text-align: center;}
+            p {font-size: 16px; text-align: center;}
+            ul {font-size: 16px; text-align: center;}
+            table {border-width: 1px; border-color: white#ffffff;}
+        </style>
+    </head>
+    <body>
+        <br><br>
+        <h1> The user <%=emp.name%> was inserted</h1>
+        <p> you can see below the list of users already inserted </p>
+        <table align="center" >
+            <tr>
+                <th>Nome</th>
+                <th>Cargo</th>
+            </tr>
+            <%select.forEach(function(value){%>
+            <tr>
+                <td><%=value.name%></td>
+                <td><%=value.cargo%></td>
+            </tr>
+            <%})%>
+        </table>
+        <br><br>
+    </body>
+
+</html>
+
