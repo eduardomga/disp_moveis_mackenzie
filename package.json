@@ -1,11 +1,18 @@
 {
-    "name": "Node",
-    "version": "1.0.0",
-    "keywords": ["util", "functional", "server", "client", "browser"],
-    "author": "eduardo.gusmao",
-    "contributors": [] ,
-     "dependencies": {
-     "express": "^4.12.2",
-     "ejs": "^1.0.0"
-   }
+  "name": "NodeApp",
+  "version": "1.0.0",
+  "keywords": [
+    "util",
+    "functional",
+    "server",
+    "client",
+    "browser"
+  ],
+  "author": "eduardo.gusmao",
+  "contributors": [],
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "njs": "0.0.2"
+  }
 }
