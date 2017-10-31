@@ -17,10 +17,10 @@
     <link href="css/simple-sidebar.css" rel="stylesheet">
     <style>
         #map {
-         height: 100vh;
-         width: 100%;
-        }
-     </style>
+           height: 100vh;
+           width: 100%;
+       }
+   </style>
 
 </head>
 
@@ -37,16 +37,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">Adicionar novo buraco</a>
+                    <a href="#" data-toggle="modal" data-target="#myCadastro">Adicionar novo buraco</a>
                 </li>
                 <li>
-                    <a href="#">Buracos no mapa</a>
+                    <a data-toggle="modal" data-target="#myListagem" href="#">Buracos no mapa</a>
                 </li>
                 <li>
-                    <a href="#">Buracos cadastrados por mim</a>
-                </li>
-                <li>
-                    <a href="#">Contato</a>
+                    <a data-toggle="modal" data-target="#myContato" href="#">Contato</a>
                 </li>
             </ul>
         </div>
@@ -91,8 +88,72 @@
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&callback=initMap">
-    </script>
+</script>
 
+
+<!-- Modal Cadastro -->
+<div id="myCadastro" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cadastro do Buraco </h4>
+    </div>
+    <div class="modal-body">
+        
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+</div>
+</div>
+</div>
+
+<!-- \Modal Cadastro -->
+
+<!-- Modal Listagem -->
+<div id="myListagem" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Listagem</h4>
+    </div>
+    <div class="modal-body">
+        <p>Some text in the modal.</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+</div>
+</div>
+</div>
+<!-- \Modal Listagem -->
+
+<!-- Modal Contato -->
+<div id="myContato" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Contato</h4>
+    </div>
+    <div class="modal-body">
+        <p>Some text in the modal.</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+</div>
+</div>
+</div>
+<!-- \Modal Contato -->
 </body>
 
 </html>
