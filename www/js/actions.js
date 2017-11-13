@@ -1,6 +1,5 @@
 $(document).ready(function(){
 	$('#cadastrarBuraco').click(function(){
-		alert('aaa');
 		var aux = {
 			nome_usuario : $('#nome_usuario').val(),
 			localizacao : $('#localizacao').val(),
@@ -8,8 +7,9 @@ $(document).ready(function(){
 		};
 		if(aux.nome_usuario && aux.localizacao && aux.grau_perigo){
 			console.log(aux);
-			axios.post('http://localhost:8081/api/buracos',aux).then(function(response){
+			axios.post('http://cibeanstalk.x2p2udq493.us-east-1.elasticbeanstalk.com/api/buracos',aux).then(function(response){
 				alert('Buraco cadastrado com Sucesso !');
+				location.reload();
 			}).catch(function(error){
 				alert('Erro ao cadastrar Buraco !');
 			});
@@ -22,13 +22,14 @@ $(document).ready(function(){
 	});
 });
 
-axios.get('http://localhost:8081/api/buracos').then(function(response){
+axios.get('http://cibeanstalk.x2p2udq493.us-east-1.elasticbeanstalk.com/api/buracos').then(function(response){
 	buracos = response.data.resultado.buracos;
 	for(var x = 0;x<buracos.length;x++){
 		var buraco = '<div class="buraco">'+
 		'<hr>'+
 		'<p>Nome do Usuario : '+buracos[x].nome_usuario+'</p>'+
-		'<p>Localização : '+buracos[x].localizacao+'</p>' +
+		'<p>Localização : </p>' +
+		'<p>'+ buracos[x].localizacao + '</p>'+
 		'<p>Grau de risco : '+ pegaRisco(buracos[x].grau_perigo) +' </p>'+
 		'<hr>'+
 		'</div>'+
@@ -52,7 +53,7 @@ function setMarkers(map) {
 		type: 'poly'
 	};
 
-	axios.get('http://localhost:8081/api/buracos').then(function(response){
+	axios.get('http://cibeanstalk.x2p2udq493.us-east-1.elasticbeanstalk.com/api/buracos').then(function(response){
 		buracos = response.data.resultado.buracos;
 		for (var i = 0; i < buracos.length; i++) {
 			var buraco = buracos[i];
@@ -92,10 +93,13 @@ function pegaRisco(nivel){
 	switch(nivel){
 		case '1':
 		aux = 'Baixo';
+		break;
 		case '2':
 		aux = 'Moderado';
+		break;
 		case '3':
 		aux = 'Alto';
+		break;
 		default :
 		aux = 'Gravissimo';
 	}
@@ -117,7 +121,22 @@ function centraMapa(){
 function initMap(){
 	var map = new google.maps.Map(document.getElementById('map'), {
 		center: {lat: -14.235, lng: -51.925},
-		zoom: 3
+		zoom: 3,
+		mapTypeControl: true,
+          mapTypeControlOptions: {
+              style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+              position: google.maps.ControlPosition.TOP_CENTER
+          },
+          zoomControl: true,
+          zoomControlOptions: {
+              position: google.maps.ControlPosition.LEFT_CENTER
+          },
+          scaleControl: true,
+          streetViewControl: false,
+          streetViewControlOptions: {
+              position: google.maps.ControlPosition.LEFT_TOP
+          },
+          fullscreenControl: false
 	});
 	var input = document.getElementById('localizacao_busca');
 

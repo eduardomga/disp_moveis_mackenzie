@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-
   <title>Buraqueira.net</title>
 
   <!-- Bootstrap core CSS -->
@@ -16,14 +15,14 @@
   <!-- Custom styles for this template -->
   <link href="css/simple-sidebar.css" rel="stylesheet">
   <style>
-    #map {
-     height: 100vh;
-     width: 100%;
-   }
-   .pac-container {
-    z-index: 1051 !important;
+  #map {
+   height: 100vh;
+   width: 100%;
+ }
+ .pac-container {
+  z-index: 1051 !important;
 }
- </style>
+</style>
 
 </head>
 
@@ -79,7 +78,7 @@
           <form class="form">
             <div class="form-group">
               <label>Nome do Usuario :</label>
-              <input type="text" placeholder="Nome do Usuario" name="nome_usuario" id="nume_usuario" class="form-control"/>
+              <input type="text" placeholder="Nome do Usuario" name="nome_usuario" id="nome_usuario" class="form-control"/>
             </div>
             <div class="form-group">
               <label>Localização</label>
@@ -95,7 +94,9 @@
                 <option value="4">Gravissimo</option>
               </select>
             </div>
-            <button class="btn btn-success btn-block" type="button">Cadastrar buraco</button>
+            <button id="cadastrarBuraco" class="btn btn-success btn-block" type="button">Cadastrar buraco</button>
+            <button id="limpaCampos" class="btn btn-warning btn-block" type="button">Limpar campos</button>
+
           </form>
         </div>
         <div class="modal-footer">
@@ -116,12 +117,7 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Modal Listagem</h4>
         </div>
-        <div class="modal-body">
-          <hr>
-          <p>Nome do Usuario : Loren Ipsum</p>
-          <p>Localização : lat:  xxxx,  long : xxxx</p>
-          <p>Grau de risco : Moderado </p>
-          <hr>
+        <div class="modal-body modal-listagem-buracos">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -165,8 +161,19 @@
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
     });
+    $(document).ready(function() {
+      $(window).keydown(function(event){
+        if(event.keyCode == 13) {
+          event.preventDefault();
+          return false;
+        }
+      });
+    });
   </script>
-  <script type="js/maps.js"></script>
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="js/actions.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGGPxztuvb3N8L35fwZxco1OyqXA97Wzk&libraries=places&callback=initMap"
   async defer></script>
 </body>
